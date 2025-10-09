@@ -1,0 +1,628 @@
+    /* ---------------- ROOT / RESET ---------------- */
+    :root{
+      --bg:#000;
+      --text:#fff;
+      --muted:rgba(255,255,255,0.65);
+      --accent: #ff6b5c;
+      --max-width:1200px;
+      --gap:24px;
+      --pad:20px;
+    }
+
+    * {
+        box-sizing:border-box;
+        margin:0;
+        padding:0;
+    }
+
+    html,body{
+        height:100%;
+    }
+
+    body{
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    a{
+        color:inherit; 
+        text-decoration:none;
+    }
+
+    img{
+        display:block; 
+        max-width:100%;
+    }
+
+    /* ---------------- LAYOUT CONTAINER ---------------- */
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding-inline:clamp(16px, 4vw, 40px);
+    }
+
+    /* ---------------- NAVBAR ---------------- */
+    header.navbar{
+      position:absolute;
+      top:0; left:0; right:0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:16px clamp(12px, 3vw, 32px);
+      z-index:40;
+      pointer-events:auto;
+    }
+
+    .logo{
+      font-weight:700;
+      line-height:1;
+      letter-spacing:1px;
+      font-size:1.05rem;
+    }
+
+    /* NAV TOGGLE (pure CSS) */
+    .nav-toggle{ 
+        display:none ;
+    }
+
+    /* hamburger label (mobile) */
+    .nav-toggle-label{
+      display:none;
+      cursor:pointer;
+      width:44px;
+      height:44px;
+      align-items:center;
+      justify-content:center;
+      border-radius:6px;
+      border:1px solid rgba(255,255,255,0.08);
+      background:rgba(0,0,0,0.35);
+      color:var(--text);
+      font-size:1.2rem;
+    }
+
+    nav.nav-links{
+      display:flex;
+      gap:28px;
+      align-items:center;
+      font-weight:500;
+      letter-spacing:0.6px;
+      transition: all 0.3s ease;
+    }
+
+    nav.nav-links a{ 
+        opacity:0.9; 
+        font-size:0.95rem;
+        transition: all 0.3s ease;
+     
+    }
+
+    nav.nav-links a:hover{ 
+        opacity:1 ;
+    }
+
+    .cta-button{
+      padding:8px 14px;
+      border-radius:4px;
+      font-weight:600;
+      background:transparent;
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover{ 
+        background: rgba(255,255,255,0.04) ;
+    }
+
+    /* ---------------- HERO ---------------- */
+    .hero-section{
+      min-height:100vh;
+      width:100%;
+      display:block;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.45) 60%),
+        url("/Assest/hero.png") center 20% / cover no-repeat;
+      background-size: cover;
+      position:relative;
+      padding-top:80px; /* keep some space for absolute navbar */
+    }
+
+    .hero-inner{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:24px;
+      min-height:calc(100vh - 140px);
+      padding-bottom:40px;
+    }
+
+    .hero-quote{
+      font-weight:400;
+      font-size:clamp(1.6rem, 4.5vw, 3.2rem);
+      max-width:58%;
+      line-height:1.12;
+      text-wrap:pretty;
+      animation: slideInLeft 1.2s ease-out 0.2s forwards;
+    }
+
+    .hero-meta{
+      text-align:right;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      opacity:0.8;
+      text-transform:uppercase;
+      font-size:0.78rem;
+      letter-spacing:2px;
+      animation: slideInRight 1.2s ease-out 0.6s forwards;
+      justify-content: center;
+
+    }
+
+  /* ================= HERO ANIMATION KEYFRAMES ================= */
+ @keyframes slideInLeft {
+  0% { 
+    opacity: 0; 
+    transform: translateX(-40px); 
+  }
+
+  100% { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+ }
+
+ @keyframes slideInRight {
+  0% { 
+    opacity: 0; 
+    transform: translateX(40px);
+  }
+  100% {
+     opacity: 1; 
+     transform: translateX(0); 
+    }
+ }
+
+
+    /* ---------------- SUB NAV (intro) ---------------- */
+    .sub-header{
+      background:transparent;
+      width:100%;
+      padding:40px 0;
+    }
+    .sub-nav{
+         display:flex;
+         justify-content:space-between; 
+         gap:12px; 
+         align-items:center;
+        animation: slideInLeft 1.2s ease-out 0.2s forwards;
+        }
+
+    .sub-nav .nav-link{ 
+        text-transform:uppercase; 
+        font-size:0.875rem; 
+        opacity:0.9;
+        animation: slideInRight 1.2s ease-out 0.6s forwards;
+
+     }
+
+    /* ---------------- MAIN CONTENT ---------------- */
+    main{ 
+        background:transparent; 
+        padding: 106px; 
+        color:var(--text) ;
+    }
+
+    .hero-block{
+      display:flex;
+      gap:32px;
+      align-items:flex-start;
+      margin-bottom:140px;
+      flex-wrap:wrap;
+    }
+
+    .hero-left{ 
+        flex: 1 1 160px;
+        animation: slideInLeft 1.2s ease-out 0.2s forwards;
+
+     }
+    .hero-right{ 
+        flex: 2 1 480px; 
+        max-width:820px;
+       animation: slideInRight 1.2s ease-out 0.6s forwards;
+
+     
+    }
+    .social-links{ 
+        font-size:0.95rem; 
+        text-transform:uppercase; 
+        opacity:0.75; 
+        letter-spacing:2px;
+    }
+
+    .philosophy{
+      font-size:clamp(1rem,2.6vw,1.6rem);
+      font-weight:300;
+      color:var(--text);
+      opacity:0.95;
+    }
+
+    /* ---------------- CTA SECTION ---------------- */
+    .cta{
+      text-align:center;
+      margin:10px 0;
+    }
+    .cta-scroll{
+         font-size:clamp(1.4rem,3.5vw,2rem); 
+         font-weight:600; 
+         margin-bottom:8px;
+        }
+
+    .cta-breathe{ 
+        font-size:1.05rem; 
+        opacity:0.8; 
+    }
+
+    /* ---------------- GALLERY ---------------- */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:24px;
+      padding: 140px;
+      margin-bottom:100px;
+    }
+
+    .gallery-item .category-title{ 
+        font-weight:600; 
+        margin-bottom:6px;
+    }
+    .gallery-item .category-tags{ 
+        font-size:0.8rem; 
+        opacity:0.7; 
+        margin-bottom:12px; 
+    }
+
+    .image-placeholder{
+      width:100%;
+      min-height:320px;
+      border-radius:8px;
+      background-color: rgba(255,255,255,0.035);
+      background-size:cover;
+      background-position:center;
+    }
+    .image-whispers{ 
+        background-image: url("/Assest/boy.png"); 
+    }
+    .image-faces{ 
+        background-image: url("/Assest/asthetic.png");
+    }
+    .small-whispers{ 
+        background-image: url("/Assest/face.png"); 
+    }
+    .small-faces{ 
+        background-image: url("/Assest/Whispers.png");
+    }
+
+    /* ---------------- CINEMATIC ---------------- */
+    .cinematic-portrait{
+      position:relative;
+      height:80vh;
+      margin:48px 0;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      border-radius:8px;
+      background:
+        radial-gradient( circle at 75% 15%, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.0) 12%),
+        rgba(8,8,10,0.95);
+    }
+    .cinematic-portrait img{ 
+        width:100%; 
+        height:100%; 
+        object-fit:cover; 
+        opacity:0.9 ;
+    }
+
+    .content-overlay{
+         position:absolute; 
+         left:6%; 
+         top:8%; 
+         color:var(--text);
+        }
+    .content-overlay .title{ 
+        font-size:clamp(1rem, 3vw, 2rem); 
+        font-weight:700; 
+        margin-bottom:10px;
+    }
+
+    .content-overlay .hashtags{ 
+        opacity:0.78; 
+        font-size:0.9rem;
+    }
+
+    /* ---------------- TIMELESS SECTION ---------------- */
+    .timeless-section{
+      padding:80px 0;
+      display:flex;
+      gap:28px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .timeless-section__image-container,
+    .timeless-section__quote-container{
+      flex:1 1 320px;
+    }
+    .timeless-section__image{
+         border-radius:8px; 
+         width:100%; 
+         height:40%;
+         display:flex;
+        }
+
+
+    .timeless-section__quote{ 
+        font-size:clamp(1rem,2.6vw,1.4rem); 
+        font-weight:300; 
+        opacity:0.95; 
+    }
+
+    /* ---------------- PORTFOLIO / CARDS ---------------- */
+    .portfolio-section{ 
+        padding:56px 0;
+     }
+    .intro-text{
+         text-align:center; 
+         margin-bottom:36px ;
+    }
+
+    .intro-text h1{ 
+        font-size:clamp(1.2rem,3vw,2rem); 
+        font-weight:600;
+    }
+
+    .intro-text p{ 
+        opacity:0.85; 
+    }
+
+    .card-container{
+      display:grid;
+      gap:20px;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    }
+
+    .photo-card{
+         background:transparent; 
+         border-radius:6px; 
+         overflow:hidden; 
+    }
+
+    .card-image-wrapper{ 
+        width:100%; 
+        aspect-ratio:3/4; 
+        overflow:hidden; 
+    }
+    .card-image-wrapper img{ 
+        width:100%; 
+        height:100%; 
+        object-fit:cover;
+        transition:transform .35s ease; 
+    }
+
+    .photo-card:hover img{ 
+        transform:scale(1.05); 
+    }
+
+    .card-details{ 
+        padding:12px 6px;
+ }
+
+    .card-date{ 
+        font-size:0.78rem; 
+        opacity:0.7;
+    }
+    
+
+    .card-title{ 
+        font-weight:600; 
+        margin-top:8px; 
+        font-size:1rem;
+    }
+
+
+    /* ---------------- FOOTER ---------------- */
+    footer.site-footer{ 
+        border-top:1px solid rgba(255,255,255,0.06); 
+        padding:52px 0; 
+    }
+
+    .cta-section{ 
+        text-align:center; 
+        margin-bottom:24px; 
+    }
+
+    .cta-title{ 
+        font-size:1.4rem; 
+        font-weight:600; 
+        margin-bottom:8px;
+    }
+
+    .info-section{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+      align-items:start;
+    }
+
+    .group-title{ 
+        font-size:0.9rem; 
+        text-transform:uppercase;
+        margin-bottom:10px;
+    }
+
+    .email-form{ 
+        display:flex; 
+        gap:8px; 
+        align-items:center; 
+        border-bottom:1px solid rgba(255,255,255,0.06); 
+        padding-bottom:6px; 
+        max-width:320px;
+    }
+
+    .email-form input{ 
+        background:none;
+        border:none;
+        color:var(--text); 
+        outline:none; 
+        width:100%; 
+        padding:6px 0;
+    }
+
+    .email-form button{ 
+        background:none; 
+        border:none; 
+        color:var(--text);
+        font-size:1rem; 
+        cursor:pointer ;
+    }
+
+    .social-links a{
+         margin-right:12px; 
+         opacity:0.85; 
+    } 
+
+    .reach-out-group address{ 
+        font-style:normal; 
+        opacity:0.9; 
+        line-height:1.5; 
+    }
+
+    /* ---------------- RESPONSIVE ---------------- */
+    @media (max-width:1024px){
+      .hero-quote{ 
+        max-width:70%; 
+    }
+      .nav-links{
+         gap:20px; 
+    }
+      .info-section{ 
+        grid-template-columns:repeat(2,1fr); 
+    }
+    }
+
+    @media (max-width:820px){
+      /* Nav - switch to mobile stacked menu */
+      .nav-toggle-label{
+         display:flex ;
+    }
+
+      nav.nav-links{ 
+        position: absolute;
+        top:64px;
+        left:12px;
+        right:12px;
+        background: rgba(0,0,0,0.78);
+        flex-direction:column;
+        gap:12px;
+        padding:12px;
+        border-radius:8px;
+        display:none;
+        z-index:45;
+      }
+      /* when checked, show nav */
+      .nav-toggle:checked + nav.nav-links{ 
+        display:flex; 
+    }
+
+      /* place CTA inside nav-links visually (on mobile) */
+      .cta-button{ 
+        display:inline-block; 
+        margin-left:0; 
+        padding:10px 12px;
+    }
+
+      /* hero adjustments */
+      .hero-inner{ 
+        flex-direction:column; 
+        align-items:flex-start;
+        padding-bottom:32px; 
+    }
+
+      .hero-quote{ 
+        max-width:100%; 
+        font-size:clamp(1.2rem,6vw,1.8rem);
+    }
+
+      .gallery{ 
+        grid-template-columns:1fr;
+    }
+
+      .timeless-section{ 
+        flex-direction:column; 
+    }
+
+      .info-section{ 
+        grid-template-columns:1fr; 
+        text-align:center;
+    }
+
+
+}
+
+    @media (max-width:420px){
+      .logo{ 
+        font-size:1rem; 
+    }
+      .nav-toggle-label{ 
+        width:42px; 
+        height:42px; 
+        font-size:1.1rem; 
+    }
+      .hero-quote{ 
+        font-size:clamp(1.1rem,6.5vw,1.6rem); 
+    }
+}
+
+
+/* ================= HOVER ANIMATIONS ================= */
+
+/* Gallery Images */
+.gallery-item .image-placeholder {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.gallery-item .image-placeholder:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
+/* Portfolio Cards */
+.photo-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.photo-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+}
+
+/* Card Images smooth zoom */
+.card-image-wrapper img {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.card-image-wrapper img:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* Optional subtle fade on card details */
+.card-details {
+  transition: opacity 0.35s ease;
+}
+
+.photo-card:hover .card-details {
+  opacity: 1;
+}
