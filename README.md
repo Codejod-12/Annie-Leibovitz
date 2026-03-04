@@ -102,3 +102,5 @@ Add animations / transitions to make scrolling more engaging
 🎯 Conclusion
 
 This project helped me grow as a front-end developer and gave me practical experience in creating visually-driven, responsive websites. It also strengthened my understanding of design principles inspired by real-world photographers like Annie Leibovitz.
+
+
