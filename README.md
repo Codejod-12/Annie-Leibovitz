@@ -2,7 +2,7 @@
 
 A responsive portfolio website inspired by Annie Leibovitz’s iconic photography style. Showcases emotion-driven portraits and storytelling through a clean, elegant web interface.
 
-Live Demo: annie-leibovitz.vercel.app
+Live Demo: [annie-leibovitz.vercel.app(https://annie-leibovitz.vercel.app/index2.html)]
 
 🛠 Technologies Used
 
